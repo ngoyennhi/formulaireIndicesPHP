@@ -18,8 +18,9 @@
         FILTER_REQUIRE_ARRAY
     );
     if (isset($arrSaisi) && !empty($arrSaisi)) {
-        $nom = $arrSaisi['nom'];
-        $motDePass = $arrSaisi['mot_de_passe'];
+        // trim pour nettoyer les espaces blancs au début ou à la fin de la chaîne
+        $nom = trim($arrSaisi['nom']);
+        $motDePass = trim($arrSaisi['mot_de_passe']);
         $sexe = $arrSaisi['sexe'];
         $photo = $arrSaisi['photo'];
         $arrCouleurs = $arrSaisi['couleurs']; // array de couleurs
@@ -31,7 +32,7 @@
 
         //nom
         if (isset($nom) && !empty($nom)) {
-            echo 'Nom = ' . $nom . '<br>';
+            echo 'Nom = ' .$nom . '<br>';
         } else {
             echo 'Nom: inconnu';
         };
