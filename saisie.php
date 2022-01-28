@@ -32,31 +32,42 @@
 
         //nom
         if (isset($nom) && !empty($nom)) {
-            echo 'Nom = ' .$nom . '<br>';
+            //Longueur maximum d’une chaine
+            if (strlen($nom) > 20) {
+                echo 'Nom est trop longue!';
+            } else {
+                echo 'Nom = ' . $nom . '<br>';
+            }
         } else {
             echo 'Nom: inconnu';
-        };
+        }
 
         //mot de passe
         if (isset($motDePass) && !empty($motDePass)) {
-            echo 'Mot de passe = ' . $motDePass . '<br>';
+            //suivi d’au moins trois ({3,}) caractères parmi ceux indiqués : a à z (et donc A à Z), 0 à 9 et les caractères _#*$
+            $motif = '/^[a-z0-9_#*$]{3,}/i';
+            if (preg_match($motif, $motDePass) == 0) {
+                echo 'Mot de passe est invalide ';
+            } else {
+               echo 'Mot de passe = ' . $motDePass . '<br>';
+            }
         } else {
             echo 'Mot de passe : inconnu';
-        };
+        }
 
         //sexe
         if (isset($sexe) && !empty($sexe)) {
             echo 'Sexe = ' . $sexe . '<br>';
         } else {
             echo 'Sexe : inconnu';
-        };
+        }
 
         //photo
         if (isset($photo) && !empty($photo)) {
             echo 'Photo = ' . $photo . '<br>';
         } else {
             echo 'Photo : inconnu';
-        };
+        }
 
         //Couleur
         if (isset($arrCouleurs) && !empty($arrCouleurs)) {
@@ -75,26 +86,25 @@
             }
         } else {
             echo 'Couleurs : inconnu';
-        };
+        }
 
         //langue
         if (isset($langue) && !empty($langue)) {
             echo 'Langue = ' . $langue . '<br>';
         } else {
             echo 'Langue : inconnu';
-        };
+        }
 
-        // Fruits        
+        // Fruits
         $arrFruits = $arrSaisi['fruits']; // array de fruits
-        if (isset($arrFruits)&&!empty($arrFruits)) {
+        if (isset($arrFruits) && !empty($arrFruits)) {
             $lengthArr = count($arrFruits);
-            for($i = 0;$i < $lengthArr;$i++){
-                echo $i.' = '.$arrFruits[$i].'<br>';
-            };
+            for ($i = 0; $i < $lengthArr; $i++) {
+                echo $i . ' = ' . $arrFruits[$i] . '<br>';
+            }
         } else {
             echo 'Fruits : inconnu';
-        };
-
+        }
 
         //Commentaire
         if (isset($commentaire) && !empty($commentaire)) {
