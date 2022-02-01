@@ -43,10 +43,10 @@
         }
 
         //mot de passe
-        if (isset($motDePass) && !empty($motDePass)) {
+        if (!empty($motDePass)) {
             //suivi d’au moins trois ({3,}) caractères parmi ceux indiqués : a à z (et donc A à Z), 0 à 9 et les caractères _#*$
             $motif = '/^[a-z0-9_#*$]{3,}/i';
-            if (preg_match($motif, $motDePass) == 0) {
+            if (!preg_match($motif, $motDePass)) {
                 echo 'Mot de passe est invalide ';
             } else {
                echo 'Mot de passe = ' . $motDePass . '<br>';
